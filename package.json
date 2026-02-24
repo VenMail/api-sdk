@@ -1,7 +1,43 @@
 {
   "name": "@venmail/vsm",
   "version": "0.1.0",
-  "description": "Official SDK for consuming Venmail webhooks and event endpoints",
+  "description": "Official Venmail SDK for Node.js/TypeScript – webhook validation, signature verification, and event normalization",
+  "keywords": [
+    "venmail",
+    "webhook",
+    "email",
+    "signature",
+    "verification",
+    "typescript",
+    "nodejs",
+    "express",
+    "middleware",
+    "events",
+    "delivery",
+    "bounce",
+    "api",
+    "sdk",
+    "validation",
+    "hmac",
+    "security",
+    "integration",
+    "mail",
+    "smtp",
+    "send"
+  ],
+  "homepage": "https://venmail.github.io/api-sdk",
+  "bugs": {
+    "url": "https://github.com/VenMail/api-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VenMail/api-sdk.git"
+  },
+  "author": {
+    "name": "Venmail",
+    "email": "support@venmail.io",
+    "url": "https://venmail.io"
+  },
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -16,8 +52,13 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/build-cjs.js",
     "build:esm": "tsc -p tsconfig.json",

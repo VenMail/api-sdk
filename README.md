@@ -156,7 +156,7 @@ implementation details when upgrades land.
 ## Documentation & support
 
 - **Live docs**: The GitHub Pages deployment lives at
-  [`https://venmail.github.io/vsm`](https://venmail.github.io/vsm). Every push to
+  [`https://venmail.github.io/api-sdk`](https://venmail.github.io/api-sdk). Every push to
   `main` triggers `.github/workflows/docs.yml`, which runs `npm ci`, executes the
   `build:docs` script, and publishes the contents of `docs-site/` via
   `actions/deploy-pages`.
