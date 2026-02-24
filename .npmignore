@@ -1,0 +1,36 @@
+# Source files
+src/
+scripts/
+test/
+*.ts
+!*.d.ts
+
+# Development files
+.git/
+.gitignore
+.vscode/
+*.code-workspace
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+.nyc_output
+
+# Environment files
+.env
+.env.*
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
