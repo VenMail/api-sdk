@@ -124,21 +124,6 @@ export interface VenmailBounceWebhookPayload {
   [key: string]: unknown;
 }
 
-export type VenmailKumoLogRecord =
-  | VenmailBounceWebhookPayload
-  | VenmailStatusWebhookPayload
-  | {
-      type: string;
-      message_id: string;
-      sender?: string;
-      recipient?: string | string[];
-      response?: string;
-      meta?: Record<string, unknown>;
-      event_time?: string | number;
-      timestamp?: string | number;
-      [key: string]: unknown;
-    };
-
 export interface VenmailWebhookRequest<TBody = unknown> {
   headers: Record<string, string | undefined>;
   req: Request;

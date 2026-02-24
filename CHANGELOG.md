@@ -49,5 +49,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Mail ingestion payloads
 - Delivery status updates
 - Bounce notifications
-- Kumo log records
 - Form events
