@@ -350,3 +350,9 @@ export function getAttachmentThumbnailUrl(attachment: VenmailAttachmentInfo, bas
 
 export type { VenmailIntegrationEvent, VenmailIntegrationEventType, VenmailWebhookRequest };
 export * from "./types";
+
+// VVS-1 Venmail Verification Standard
+export * as vvs from './vvs/index';
+export { venmailWellKnown } from './helpers/well-known';
+export type { AgentLookup } from './helpers/well-known';
+export { generateDnsRecord } from './helpers/dns-record';
