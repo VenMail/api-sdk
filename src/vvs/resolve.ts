@@ -52,6 +52,7 @@ async function resolveWellKnown(agentName: string, domain: string, cacheKey: str
     clearTimeout(timeout);
     if (!res.ok) return null;
     const data = await res.json();
+    if (!data.public_key || !data.status) return null;
     const result: ResolvedKey = { publicKey: data.public_key, keyVersion: data.key_version, status: data.status };
     setCache(cacheKey, result);
     return result;
