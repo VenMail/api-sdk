@@ -15,4 +15,5 @@ export default {
   moduleFileExtensions: ['ts', 'js', 'json'],
   roots: ['<rootDir>'],
   moduleDirectories: ['node_modules', 'src'],
+  modulePathIgnorePatterns: ['<rootDir>/docs-site/'],
 };
