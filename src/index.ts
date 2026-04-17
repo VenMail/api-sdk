@@ -356,3 +356,6 @@ export * as vvs from './vvs/index';
 export { venmailWellKnown } from './helpers/well-known';
 export type { AgentLookup } from './helpers/well-known';
 export { generateDnsRecord } from './helpers/dns-record';
+
+// Agent REST API client — bearer-auth access to Venmail inboxes for AI agents.
+export * from './agent/index';

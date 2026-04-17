@@ -140,6 +140,82 @@ All exported interfaces are re-exported from the package root for IDE autocomple
 Need help? Open an issue on GitHub with reproduction details plus any relevant
 request IDs from Venmail logs.
 
+## Agent API client
+
+The SDK also ships an `AgentClient` for the Venmail Agent REST API — the
+bearer-authenticated endpoints that let AI agents (Claude, MCP servers, any
+HTTP client) read and send mail from a Venmail inbox.
+
+Tokens are provisioned from the Venmail UI (Admin → AI Agents, or Profile →
+Advanced → Share with AI agent) and look like `ma-vm_<prefix>_<secret>`.
+
+```ts
+import { AgentClient } from "@venmail/vsm";
+
+const client = new AgentClient({
+  baseUrl: "https://mail.example.com",
+  token: process.env.VENMAIL_AGENT_TOKEN!,
+  // Called when a refreshed token arrives; persist it somewhere.
+  onTokenRefreshed: (t) => keychain.set("venmail:agent", t),
+});
+
+// Identify the bound inbox & scopes.
+const me = await client.me();
+
+// List threads.
+const { data: threads, next_cursor } = await client.listThreads({
+  folder: "inbox",
+  limit: 25,
+});
+
+// Reply.
+await client.replyToThread(threads[0].id, {
+  body: "Thanks — I'll follow up shortly.",
+});
+
+// Send a new message.
+await client.sendMessage({
+  to: "alice@example.com",
+  subject: "Quick update",
+  body: "Hello Alice, here is the status.",
+});
+
+// Rotate the token.
+await client.refreshToken();
+```
+
+### Supported endpoints
+
+| Method                    | Scope            | Description                              |
+| ------------------------- | ---------------- | ---------------------------------------- |
+| `me()`                    | (any valid token)| Identity + scopes of the bound inbox.    |
+| `listThreads(params)`     | `inbox:read`     | Paginated thread list with cursor + q.   |
+| `getThread(id)`           | `thread:read`    | Full thread with nested messages.        |
+| `markThreadRead(id)`      | `mail:mark_read` | Idempotent.                              |
+| `replyToThread(id, body)` | `mail:send`      | Inline reply to an existing thread.      |
+| `sendMessage(input)`      | `mail:send`      | New outbound mail.                       |
+| `refreshToken()`          | (any valid token)| Rotates; old token is revoked server-side.|
+| `revokeToken()`           | (any valid token)| Explicit revoke.                         |
+
+### Errors
+
+All API failures throw `AgentApiError` with a `status` field and the raw
+server `body`. Transient 5xx failures are retried up to `retries` (default 2)
+with jittered exponential backoff.
+
+```ts
+import { AgentApiError } from "@venmail/vsm";
+
+try {
+  await client.listThreads();
+} catch (e) {
+  if (e instanceof AgentApiError && e.status === 403) {
+    // Token missing required scope — reissue with the right permissions.
+  }
+  throw e;
+}
+```
+
 ## Local development (for contributors)
 
 ```bash
