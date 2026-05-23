@@ -8,7 +8,7 @@ import {
   VenmailStatusWebhookPayload,
   VenmailBounceWebhookPayload,
   VenmailWebhookRequest,
-} from "./types";
+} from "./types.js";
 
 const DEFAULT_SIGNATURE_HEADER = "x-venmail-signature";
 const DEFAULT_EVENT_HEADER = "x-venmail-event";
@@ -349,13 +349,14 @@ export function getAttachmentThumbnailUrl(attachment: VenmailAttachmentInfo, bas
 }
 
 export type { VenmailIntegrationEvent, VenmailIntegrationEventType, VenmailWebhookRequest };
-export * from "./types";
+export * from "./types.js";
 
 // VVS-1 Venmail Verification Standard
-export * as vvs from './vvs/index';
-export { venmailWellKnown } from './helpers/well-known';
-export type { AgentLookup } from './helpers/well-known';
-export { generateDnsRecord } from './helpers/dns-record';
+export * as vvs from './vvs/index.js';
+export { venmailWellKnown } from './helpers/well-known.js';
+export type { AgentLookup } from './helpers/well-known.js';
+export { generateDnsRecord } from './helpers/dns-record.js';
 
 // Agent REST API client — bearer-auth access to Venmail inboxes for AI agents.
-export * from './agent/index';
+export * from './agent/index.js';
+export * from './partner/index.js';

@@ -27,7 +27,7 @@ import {
   RefreshTokenResponse,
   ReplyInput,
   SendMessageInput,
-} from "./types";
+} from "./types.js";
 
 const API_PATH = "/api/v1/agent";
 const DEFAULT_TIMEOUT_MS = 30_000;

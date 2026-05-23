@@ -1,7 +1,7 @@
 import { sign, randomBytes } from 'crypto';
-import { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize';
-import { computeContentHash, base64urlEncode } from './hash';
-import type { VvsHeaders, VvsSignOptions, VvsSignResult } from './types';
+import { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize.js';
+import { computeContentHash, base64urlEncode } from './hash.js';
+import type { VvsHeaders, VvsSignOptions, VvsSignResult } from './types.js';
 
 export function generateNonce(): string {
   return randomBytes(16).toString('hex');

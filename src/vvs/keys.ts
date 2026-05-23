@@ -1,6 +1,6 @@
 import { generateKeyPairSync } from 'crypto';
-import { base64urlEncode } from './hash';
-import type { VvsKeyPair } from './types';
+import { base64urlEncode } from './hash.js';
+import type { VvsKeyPair } from './types.js';
 
 const PKCS8_PREFIX = Buffer.from('302e020100300506032b657004220420', 'hex');
 const SPKI_PREFIX = Buffer.from('302a300506032b6570032100', 'hex');

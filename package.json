@@ -1,6 +1,6 @@
 {
   "name": "@venmail/vsm",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Official Venmail SDK for Node.js/TypeScript – webhook validation, VVS-1 message signing & verification, and event normalization",
   "keywords": [
     "venmail",

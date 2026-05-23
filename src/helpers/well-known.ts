@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express';
-import type { VvsAgentRecord } from '../vvs/types';
+import type { VvsAgentRecord } from '../vvs/types.js';
 
 export type AgentLookup = (agentName: string) => Promise<VvsAgentRecord | null> | VvsAgentRecord | null;
 

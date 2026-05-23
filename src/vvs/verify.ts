@@ -1,9 +1,9 @@
 import { verify } from 'crypto';
-import { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize';
-import { computeContentHash, base64urlDecode } from './hash';
-import { importPublicKey } from './keys';
-import { resolveKey } from './resolve';
-import type { VvsTrustLevel, VvsVerifyResult } from './types';
+import { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize.js';
+import { computeContentHash, base64urlDecode } from './hash.js';
+import { importPublicKey } from './keys.js';
+import { resolveKey } from './resolve.js';
+import type { VvsTrustLevel, VvsVerifyResult } from './types.js';
 
 export interface VerifyOptions {
   timestampWindow?: number;

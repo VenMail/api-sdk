@@ -1,7 +1,7 @@
-export { AgentClient } from "./AgentClient";
+export { AgentClient } from "./AgentClient.js";
 export {
   AgentApiError,
-} from "./types";
+} from "./types.js";
 export type {
   AgentAddress,
   AgentClientOptions,
@@ -15,4 +15,4 @@ export type {
   RefreshTokenResponse,
   ReplyInput,
   SendMessageInput,
-} from "./types";
+} from "./types.js";

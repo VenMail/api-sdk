@@ -1,10 +1,10 @@
-export { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize';
-export { computeContentHash, base64urlEncode, base64urlDecode } from './hash';
-export { signMessage, generateNonce } from './sign';
-export { verifyMessage } from './verify';
-export type { VerifyOptions } from './verify';
-export { resolveKey } from './resolve';
-export { generateKeyPair, importPrivateKey, importPublicKey } from './keys';
+export { canonicalizeBody, canonicalizeHeaders, buildCanonicalPayload } from './canonicalize.js';
+export { computeContentHash, base64urlEncode, base64urlDecode } from './hash.js';
+export { signMessage, generateNonce } from './sign.js';
+export { verifyMessage } from './verify.js';
+export type { VerifyOptions } from './verify.js';
+export { resolveKey } from './resolve.js';
+export { generateKeyPair, importPrivateKey, importPublicKey } from './keys.js';
 export type {
   VvsTrustLevel,
   VvsHeaders,
@@ -13,4 +13,4 @@ export type {
   VvsVerifyResult,
   VvsAgentRecord,
   VvsSignOptions,
-} from './types';
+} from './types.js';

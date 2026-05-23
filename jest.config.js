@@ -13,6 +13,9 @@ export default {
     '!src/**/*.d.ts',
   ],
   moduleFileExtensions: ['ts', 'js', 'json'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
   roots: ['<rootDir>'],
   moduleDirectories: ['node_modules', 'src'],
   modulePathIgnorePatterns: ['<rootDir>/docs-site/'],
