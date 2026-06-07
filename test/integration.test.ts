@@ -20,7 +20,6 @@ describe('Integration Tests', () => {
         async onEvent(event: VenmailIntegrationEvent) {
           receivedEvents.push(event);
         },
-        autoRespond: false,
       })
     );
 
